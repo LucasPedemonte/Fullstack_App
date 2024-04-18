@@ -1,0 +1,22 @@
+{
+  "name": "project3-csds-221",
+  "version": "1.0.0",
+  "description": "Fullstack Vue Application",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "nodemon server/index.js"
+  },
+  "author": "Lucas Pedemonte",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "express": "^4.19.2",
+    "mongodb": "^6.5.0",
+    "vue": "^3.4.23"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}
