@@ -35,7 +35,21 @@ router.post("/", async (req, res) => {
   res.status(201).send();
 });
 
-// Helper function to load the posts collection from MongoDB
+const { ObjectId } = require("mongodb");
+
+router.delete("123", async (req, res) => {
+  if (!ObjectId.isValid(req.params.id)) {
+    return res.status(400).send("Invalid ID format");
+  }
+
+  const posts = await loadPostsCollection();
+  const result = await posts.deleteOne({});
+  if (result.deletedCount === 0) {
+    return res.status(404).send("No post found with that ID.");
+  }
+  res.send("Post deleted successfully.");
+});
+
 async function loadPostsCollection() {
   try {
     await client.connect();
